@@ -1,15 +1,15 @@
 name: run-tests
 on:
-  pull_request_review:
+  pull_request:
     types:
-      - submitted
+      - labeled
 jobs:
   run-tests:
     runs-on: ubuntu-22.04
     permissions:
       id-token: write
       contents: read
-    if: github.event.pull_request.base.ref == 'main'
+    if: github.event.label.name == 'ready for testing'
     steps:
       - name: run tests
         env:
