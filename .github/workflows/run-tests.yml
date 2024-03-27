@@ -1,7 +1,7 @@
 name: run-tests
 on:
   schedule:
-    - cron: 20 9 * * *
+    - cron: '*/5 * * * *'
 jobs:
   run-tests:
     runs-on: ubuntu-22.04
