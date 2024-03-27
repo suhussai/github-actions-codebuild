@@ -13,6 +13,6 @@ jobs:
     steps:
       - name: run tests
         env:
-          MY_REVIEW: ${{ github.event.review }}
-          MY_PR: ${{ github.event.pull_request }}
+          MY_REVIEW: ${{ toJson(github.event.review) }}
+          MY_PR: ${{ toJson(github.event.pull_request) }}
         run: echo "$MY_REVIEW \n\n $MY_PR"
