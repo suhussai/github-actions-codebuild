@@ -1,18 +1,13 @@
 name: run-tests
 on:
-  pull_request_review:
-    types:
-      - submitted
+  schedule:
+    - cron: 20 9 * * *
 jobs:
   run-tests:
     runs-on: ubuntu-22.04
     permissions:
       id-token: write
       contents: read
-    if: github.event.pull_request.base.ref == 'main'
     steps:
       - name: run tests
-        env:
-          MY_REVIEW: ${{ toJson(github.event.review) }}
-          MY_PR: ${{ toJson(github.event.pull_request) }}
-        run: echo "$MY_REVIEW \n\n $MY_PR"
+        run: env
