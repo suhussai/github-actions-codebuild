@@ -9,7 +9,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    if: github.event.pull_request.base.ref == 'main' && github.event.review.state == 'APPROVED'
+    if: github.event.pull_request.base.ref == 'main'
     steps:
       - name: run tests
         env:
